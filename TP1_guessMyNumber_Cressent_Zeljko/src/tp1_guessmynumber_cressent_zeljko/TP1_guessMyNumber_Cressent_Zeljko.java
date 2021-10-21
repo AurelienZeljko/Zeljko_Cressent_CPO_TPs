@@ -51,16 +51,15 @@ public class TP1_guessMyNumber_Cressent_Zeljko {
                 }
                 System.out.println("\n Entrer un nombre entre 0 et 100 :");
                 nb1 = sc.nextInt();
-                System.out.println("gagné");
 
             }
             System.out.println("vous avez gagné en :" + t + "essai");
         }
         if (operateur == 2) {
             Random generateurAleat = new Random();
-            int n = generateurAleat.nextInt(100);
+            int n = generateurAleat.nextInt(500);
             //System.out.println(n);
-            System.out.println("\n Entrer un nombre entre 0 et 100 :");
+            System.out.println("\n Entrer un nombre entre 0 et 500 :");
             int nb1 = sc.nextInt();
             int t = 1;
             while (nb1 != n) {
@@ -77,7 +76,31 @@ public class TP1_guessMyNumber_Cressent_Zeljko {
                 }
                 System.out.println("\n Entrer un nombre entre 0 et 100 :");
                 nb1 = sc.nextInt();
-                System.out.println("gagné");
+
+            }
+            System.out.println("vous avez gagné en :" + t + "essai");
+        }
+        if (operateur == 3) {
+            Random generateurAleat = new Random();
+            int n = generateurAleat.nextInt(1000);
+            //System.out.println(n);
+            System.out.println("\n Entrer un nombre entre 0 et 1000 :");
+            int nb1 = sc.nextInt();
+            int t = 1;
+            while (nb1 != n) {
+                t = t + 1;
+                if (nb1 == n) {
+                    System.out.println("\n gagné");
+                }
+                if (nb1 < n) {
+                    System.out.println("\n trop petit");
+
+                }
+                if (nb1 > n) {
+                    System.out.println("\n trop grand");
+                }
+                System.out.println("\n Entrer un nombre entre 0 et 100 :");
+                nb1 = sc.nextInt();
 
             }
             System.out.println("vous avez gagné en :" + t + "essai");
