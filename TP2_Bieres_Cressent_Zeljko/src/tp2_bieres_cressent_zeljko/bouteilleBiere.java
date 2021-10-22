@@ -19,14 +19,14 @@ public class bouteilleBiere {
     public void lireEtiquette() {
         System.out.println("Bouteille de " + nom +" (" + degreAlcool + " degres) \nBrasserie : " + brasserie  ) ;
     }
-    public bouteilleBiere(String unNom, double unDegre, String uneBrasserie, boolean ouverte) {
+    public bouteilleBiere(String unNom, double unDegre, String uneBrasserie, boolean uneouverte) {
         nom = unNom;
         degreAlcool = unDegre;
         brasserie = uneBrasserie;
-        ouverte = false;
+        ouverte = uneouverte;
     }
     public void Décapsuler() {
-        if (ouverte=false) {
+        if (ouverte==false) {
             ouverte=true;
             System.out.println("je viens de l'ouvrir, SANTE !");
         }
