@@ -18,6 +18,6 @@ public class TP2_convertisseurObjet_Cressent_Zeljko {
         Convertisseur Temp1 = new Convertisseur();
         Temp1.CelciusVersFarenheit(15);
         System.out.println(Temp1);
-        Temp1.toString();
+        //Temp1.toString();
     }
 }
