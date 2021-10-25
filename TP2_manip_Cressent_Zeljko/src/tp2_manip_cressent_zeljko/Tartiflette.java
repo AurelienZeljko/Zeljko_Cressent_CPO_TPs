@@ -12,6 +12,6 @@ public class Tartiflette {
     int nbCalories;
     
     Tartiflette (int nb) {
-        nb=nbCalories;
+        nbCalories=nb;
     }
 }
