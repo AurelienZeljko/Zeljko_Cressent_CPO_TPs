@@ -10,4 +10,8 @@ package tp2_manip_cressent_zeljko;
  */
 public class Moussaka {
     int nbCalories;
+    public static int Moussaka (int nb) {
+        int KAL = nb;
+    return KAL;
+    }
 }

@@ -11,8 +11,7 @@ package tp2_manip_cressent_zeljko;
 public class Tartiflette {
     int nbCalories;
     
-    public static int Tartiflette (int nb) {
-        int KAL = nb;
-    return KAL;
+    Tartiflette (int nb) {
+        nb=nbCalories;
     }
 }
