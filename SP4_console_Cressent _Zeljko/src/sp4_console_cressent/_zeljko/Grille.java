@@ -4,8 +4,6 @@
  */
 package sp4_console_cressent._zeljko;
 
-import java.util.Scanner;
-
 /**
  *
  * @author aurelienzeljko
