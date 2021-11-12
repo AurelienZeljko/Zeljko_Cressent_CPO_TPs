@@ -29,6 +29,64 @@ public class Cellule {
     }
     
     public Jeton recupererJeton(){
-        
+        Jeton jetonRecuperation = jetonCourant;
+        jetonCourant = null;
+        return jetonRecuperation;
     }
+    
+    public boolean supprimerJeton () {
+        if ( jetonCourant != null ){
+            jetonCourant=null;
+            return true;
+        }
+        return false;
+           
+    }
+    public boolean placerTrouNoir (){
+        if ( trouNoir==false){
+            trouNoir=true;
+            return true;
+        }
+        return false;
+    }
+    public boolean placerdesintegrateur(){
+        if ( desintegrateur==false){
+            desintegrateur=true;
+            return true;
+        }
+        return false;
+    }
+    public boolean presenceTrouNoir(){
+        if ( trouNoir==true){
+            return true;
+        }
+        return false;
+    }
+    public boolean presencedesintegrateur(){
+        if ( desintegrateur==true){
+            return true;
+        }
+        return false;
+    }
+    public String lireCouleurDuJeton(){
+        if ( jetonCourant==null){
+            return "vide";
+        }
+        return jetonCourant.lireCouleur();
+    }
+    public boolean recupererDesintegrateur(){
+        if ( desintegrateur==true ){
+            desintegrateur=false;
+            return true;
+        }
+        return false;
+    }
+    public boolean activerTrouNoir(){
+        if ( trouNoir==true){
+            jetonCourant=null;
+            return true;
+        }
+        return false;
+    }
+
 }
