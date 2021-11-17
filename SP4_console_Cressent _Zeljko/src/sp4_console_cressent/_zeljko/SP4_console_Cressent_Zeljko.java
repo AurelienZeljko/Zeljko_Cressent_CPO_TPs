@@ -15,6 +15,15 @@ public class SP4_console_Cressent_Zeljko {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Jeton J = new Jeton("Rouge");
+        System.out.println(J.lireCouleur());
+        Cellule c=new Cellule();
+        System.out.println(c.lireCouleurDuJeton());
+        c.affecterJeton(J);
+        System.out.println(c.lireCouleurDuJeton());
+        Grille g=new Grille();
+        g.afficherGrilleSurConsole();
+        g.ajouterJetonDansColonne(J, 2);
     }
     
 }
