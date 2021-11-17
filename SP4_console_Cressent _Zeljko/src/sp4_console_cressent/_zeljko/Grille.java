@@ -48,4 +48,42 @@ public class Grille {
             System.out.println();
         }
     }
+    public boolean etreRemplie(){
+        for ( int i=0 ; i<6 ; i++){
+            if (CellulesJeu[5][i].jetonCourant==null){
+                return false;
+            }
+                
+        }
+        return true;
+    }
+    
+    public void viderGrille(){
+        for ( int i=0 ; i<6 ;i++ ){
+            for (int j=0 ; j<7 ; j++){
+                CellulesJeu[i][j].jetonCourant=null;
+            }
+        }
+    }
+    public boolean celluleOccupee(int A , int B){
+        if ( CellulesJeu[A][B].jetonCourant==null){
+            return false;
+        }
+        return true;
+    }
+    public String lireCouleurDuJeton(int A, int B){
+        if ( CellulesJeu[A][B].lireCouleurDuJeton() == "Rouge"){
+             System.out.println("Rouge");
+        }
+        else if( CellulesJeu[A][B].lireCouleurDuJeton() == "Jaune"){
+            System.out.println("Jaune");
+        }
+        else if( CellulesJeu[A][B].lireCouleurDuJeton() == "vide"){
+            System.out.println("vide");
+        }
+        return null;
+    }
+    public boolean etreGagnantePourJoueur (Joueur) {
+        
+    }
 }
