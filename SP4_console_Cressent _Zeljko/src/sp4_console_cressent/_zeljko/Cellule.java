@@ -42,7 +42,7 @@ public class Cellule {
         return false;
            
     }
-    public boolean placerTrouNoir (){
+    public boolean placerTrouNoir(){
         if ( trouNoir==false){
             trouNoir=true;
             return true;
