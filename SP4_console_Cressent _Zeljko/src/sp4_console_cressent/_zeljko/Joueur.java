@@ -11,7 +11,7 @@ package sp4_console_cressent._zeljko;
 public class Joueur {
     String nom;
     String couleur;
-    Jeton[]ListeJetons;
+    Jeton[]ListeJetons = new Jeton[21];
     int nombreDesintegrateurs;
     int nombreJetonsRestants;
     

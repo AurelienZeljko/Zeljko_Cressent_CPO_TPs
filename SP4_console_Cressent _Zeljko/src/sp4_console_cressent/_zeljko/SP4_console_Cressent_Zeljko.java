@@ -22,8 +22,14 @@ public class SP4_console_Cressent_Zeljko {
         c.affecterJeton(J);
         System.out.println(c.lireCouleurDuJeton());
         Grille g=new Grille();
-        g.afficherGrilleSurConsole();
         g.ajouterJetonDansColonne(J, 2);
+        String A="aurel";
+        String B="chloe";
+        Joueur Joueur1 = new Joueur(A);
+        Joueur Joueur2 = new Joueur(B);
+        Partie unePartie = new Partie(Joueur1,Joueur2);
+        unePartie.initialiserPartie();
+        unePartie.debuterPartie();
     }
     
 }
