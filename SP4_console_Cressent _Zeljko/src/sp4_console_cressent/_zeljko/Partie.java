@@ -85,7 +85,6 @@ public class Partie {
                 }
 
                 case 2 -> {
-                    // désintégrer jeton
                     System.out.println("choisi une ligne ");
                     int lig2 = sc.nextInt() - 1;
                     System.out.println("choisi une collone");
@@ -105,7 +104,6 @@ public class Partie {
                 }
 
                 case 3 -> {
-                    // récupérer jeton
                     System.out.println("choisi une ligne");
                     int lig3 = sc.nextInt() - 1;
                     System.out.println("choisi une collone");
@@ -155,7 +153,6 @@ public class Partie {
     }
 
     public void initialiserPartie() {
-//        grilleJeu.viderGrille();
         Scanner sc = new Scanner(System.in);
         System.out.println("nom du premier joueur :");
         Joueur joueur1 = new Joueur(sc.nextLine());
