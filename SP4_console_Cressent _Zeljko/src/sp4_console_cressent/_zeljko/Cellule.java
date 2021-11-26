@@ -84,6 +84,7 @@ public class Cellule {
     public boolean activerTrouNoir(){
         if ( trouNoir==true){
             jetonCourant=null;
+            trouNoir=false;
             return true;
         }
         return false;

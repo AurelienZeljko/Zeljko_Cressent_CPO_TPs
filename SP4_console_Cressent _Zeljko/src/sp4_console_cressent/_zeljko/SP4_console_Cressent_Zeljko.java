@@ -21,8 +21,7 @@ public class SP4_console_Cressent_Zeljko {
         Joueur Joueur1 = new Joueur(A);
         Joueur Joueur2 = new Joueur(B);
         Partie unePartie = new Partie(Joueur1,Joueur2);
-        unePartie.initialiserPartie();
-        //unePartie.debuterPartie();
+        unePartie.debuterPartie();
     }
     
 }

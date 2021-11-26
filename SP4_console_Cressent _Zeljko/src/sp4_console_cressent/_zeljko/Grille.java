@@ -34,15 +34,22 @@ public class Grille {
     }
 
     public void afficherGrilleSurConsole() {
-        for (int i = 0; i < 6; i++) {
+        for (int i = 5; i >=0; i--) {
             for (int j = 0; j < 7; j++) {
-                if (CellulesJeu[i][j].lireCouleurDuJeton() == "vide") {
+                if (CellulesJeu[i][j].lireCouleurDuJeton() == "vide" && CellulesJeu[i][j].presenceTrouNoir()==false && CellulesJeu[i][j].presencedesintegrateur()==false) {
                     System.out.print("-");
                 } else if (CellulesJeu[i][j].lireCouleurDuJeton() == "Rouge") {
                     System.out.print("R");
                 } else if (CellulesJeu[i][j].lireCouleurDuJeton() == "Jaune") {
                     System.out.print("J");
                 }
+                if ( CellulesJeu[i][j].presenceTrouNoir()==true){
+                    System.out.print("T");
+                }
+                if ( CellulesJeu[i][j].presencedesintegrateur()==true){
+                    System.out.print("D");
+                }
+                    
             }
             System.out.println();
         }
