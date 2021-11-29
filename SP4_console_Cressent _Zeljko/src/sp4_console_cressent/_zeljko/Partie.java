@@ -198,14 +198,15 @@ public class Partie {
             }
         }
         Random nombre3 = new Random();
-        int A, B;
-        do {
-            A = nombre3.nextInt(6);
-            B = nombre3.nextInt(7);
-        } while (grilleJeu.CellulesJeu[A][B].presencedesintegrateur() == true);
+        for (int i =1 ; i<4 ; i++){
+            int A, B;
+            do {
+                A = nombre3.nextInt(6);
+                B = nombre3.nextInt(7);
+            } while (grilleJeu.CellulesJeu[A][B].presencedesintegrateur() == true);
 
-        grilleJeu.placerDesintegrateur(A, B);
-
+            grilleJeu.placerDesintegrateur(A, B);
+        }
         //grilleJeu.afficherGrilleSurConsole();
     }
 

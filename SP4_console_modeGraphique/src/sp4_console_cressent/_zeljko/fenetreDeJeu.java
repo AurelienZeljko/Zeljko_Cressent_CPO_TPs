@@ -4,14 +4,19 @@
  */
 package sp4_console_cressent._zeljko;
 
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
  * @author aurelienzeljko
  */
 public class fenetreDeJeu extends javax.swing.JFrame {
-    Joueur[] ListeJoueurs;
+
+    Joueur[] ListeJoueurs = new Joueur[2];
     Joueur joueurCourant;
     Grille grilleJeu = new Grille();
+
     /**
      * Creates new form fenetreDeJeu
      */
@@ -19,13 +24,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         panneau_info_joueur.setVisible(false);
         panneau_info_partie.setVisible(false);
-        
-        for (int i=5 ; i >= 0; i--){
-            for (int j=0 ; j < 7 ; j++){
+
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
                 panneau_grille.add(cellGraph);
             }
-        }
+        } 
     }
 
     /**
@@ -64,7 +69,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         lbl_J2_couleur = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        lbl_J2_nom1 = new javax.swing.JLabel();
+        lbl_J2_nom = new javax.swing.JLabel();
         btn_col_0 = new javax.swing.JButton();
         btn_col_1 = new javax.swing.JButton();
         btn_col_2 = new javax.swing.JButton();
@@ -109,14 +114,14 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         jLabel2.setText("Nom joueur 1 :");
         panneau_creation_partie.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-        panneau_creation_partie.add(nom_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, -1));
+        panneau_creation_partie.add(nom_joueur1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 110, -1));
 
         nom_joueur2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nom_joueur2ActionPerformed(evt);
             }
         });
-        panneau_creation_partie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 110, -1));
+        panneau_creation_partie.add(nom_joueur2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, -1));
 
         btn_start.setText("Démarrer partie");
         btn_start.addActionListener(new java.awt.event.ActionListener() {
@@ -169,8 +174,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel11.setText("joueur 2:");
         panneau_info_partie.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
-        lbl_J2_nom1.setText("nomJoueur2");
-        panneau_info_partie.add(lbl_J2_nom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
+        lbl_J2_nom.setText("nomJoueur2");
+        panneau_info_partie.add(lbl_J2_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
         getContentPane().add(panneau_info_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 180, 290, 260));
 
@@ -250,6 +255,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_info_joueur.setVisible(true);
         panneau_info_partie.setVisible(true);
+        initialiserPartie();
+        panneau_grille.repaint();
+        btn_start.setEnabled(false);
     }//GEN-LAST:event_btn_startActionPerformed
 
     /**
@@ -287,6 +295,90 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         });
     }
 
+    public void initialiserPartie() {
+        
+        String nomJoueur1 = nom_joueur1.getText();
+        Joueur joueur1 = new Joueur(nomJoueur1);
+        String nomJoueur2 = nom_joueur2.getText();
+        Joueur joueur2 = new Joueur(nomJoueur2);
+
+        ListeJoueurs[0] = joueur1;
+        ListeJoueurs[1] = joueur2;
+
+        attribuerCouleurAuxJoueurs();
+        Random couleur = new Random();
+        int aleat = couleur.nextInt(2);
+        if (aleat == 1) {
+            joueurCourant = ListeJoueurs[0];
+            System.out.println(ListeJoueurs[0].nom + " commence.");
+        } else {
+            joueurCourant = ListeJoueurs[1];
+            System.out.println(ListeJoueurs[1].nom + " commence.");
+        }
+        
+        
+        lbl_J1_nom.setText(nomJoueur1);
+        lbl_J2_nom.setText(nomJoueur2);
+        lbl_J1_couleur.setText(joueur1.couleur);
+        lbl_J2_couleur.setText(joueur2.couleur);
+        
+        for (int i = 0; i < 21; i++) {
+            Jeton unJeton = new Jeton(ListeJoueurs[0].couleur);
+            ListeJoueurs[0].ajouterJeton(unJeton);
+            Jeton unJeton2 = new Jeton(ListeJoueurs[1].couleur);
+            ListeJoueurs[1].ajouterJeton(unJeton2);
+        }
+        
+        
+        Random nombre = new Random();
+        for (int i = 1; i < 3; i++) {
+            boolean trouNoir = false;
+            boolean Desintegrateur = false;
+            while (trouNoir == false && Desintegrateur == false) {
+                int A = nombre.nextInt(6);
+                int B = nombre.nextInt(7);
+                trouNoir = grilleJeu.placerTrouNoir(A, B);
+                Desintegrateur = grilleJeu.placerDesintegrateur(A, B);
+            }
+        }
+        Random nombre1 = new Random();
+        for (int i = 1; i < 4; i++) {
+            boolean trouNoir = false;
+            while (trouNoir == false) {
+                int A = nombre1.nextInt(6);
+                int B = nombre1.nextInt(7);
+                trouNoir = grilleJeu.placerTrouNoir(A, B);
+            }
+        }
+        Random nombre3 = new Random();
+        for (int i =1 ; i<4 ; i++){
+            int A, B;
+            do {
+                A = nombre3.nextInt(6);
+                B = nombre3.nextInt(7);
+            } while (grilleJeu.CellulesJeu[A][B].presencedesintegrateur() == true);
+
+            grilleJeu.placerDesintegrateur(A, B);
+        }
+        grilleJeu.afficherGrilleSurConsole();
+    }
+
+    public void attribuerCouleurAuxJoueurs() {
+        Random couleur = new Random();
+        int nbr = couleur.nextInt(2);
+        if (nbr == 1) {
+            ListeJoueurs[0].affecterCouleur("Jaune");
+            System.out.println(ListeJoueurs[0].nom + " est Jaune.");
+            ListeJoueurs[1].affecterCouleur("Rouge");
+            System.out.println(ListeJoueurs[1].nom + " est Rouge.");
+        } else {
+            ListeJoueurs[0].affecterCouleur("Rouge");
+            System.out.println(ListeJoueurs[0].nom + " est Rouge.");
+            ListeJoueurs[1].affecterCouleur("Jaune");
+            System.out.println(ListeJoueurs[1].nom + " est Jaune.");
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_col_0;
     private javax.swing.JButton btn_col_1;
@@ -314,7 +406,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_J1_nom;
     private javax.swing.JLabel lbl_J2_couleur;
     private javax.swing.JLabel lbl_J2_desint;
-    private javax.swing.JLabel lbl_J2_nom1;
+    private javax.swing.JLabel lbl_J2_nom;
     private javax.swing.JLabel lbl_jcourant;
     private javax.swing.JScrollPane message;
     private javax.swing.JTextField nom_joueur1;
