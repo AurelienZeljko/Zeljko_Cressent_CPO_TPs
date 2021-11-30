@@ -159,7 +159,7 @@ public class Grille {
 
     public boolean colonneRemplie(int A) {
         for (int i = 0; i < 6; i++) {
-            if (CellulesJeu[i][A] == null) {
+            if (CellulesJeu[i][A].jetonCourant == null) {
                 return false;
             }
         }
