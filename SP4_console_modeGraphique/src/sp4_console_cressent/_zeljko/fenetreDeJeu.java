@@ -11,6 +11,7 @@ import java.util.Scanner;
  *
  * @author aurelienzeljko
  */
+
 public class fenetreDeJeu extends javax.swing.JFrame {
 
     Joueur[] ListeJoueurs = new Joueur[2];
@@ -20,6 +21,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     /**
      * Creates new form fenetreDeJeu
      */
+    public boolean avoirgagne(){
+        if ( grilleJeu.etreGagantePourJoueur(ListeJoueurs[0])== true ||grilleJeu.etreGagantePourJoueur(ListeJoueurs[1])== true ){
+            btn_col_0.setEnabled(false);
+            btn_col_1.setEnabled(false);
+            btn_col_2.setEnabled(false);
+            btn_col_3.setEnabled(false);
+            btn_col_4.setEnabled(false);
+            btn_col_5.setEnabled(false);
+            btn_col_6.setEnabled(false);
+            return true;
+        }
+        else return false;
+    }
     public fenetreDeJeu() {
         initComponents();
         panneau_info_joueur.setVisible(false);
@@ -52,8 +66,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 return;
                             }
                         }
+                        
                         //grilleJeu.tasserGrille();
                         panneau_grille.repaint();
+                        avoirgagne();
                         lbl_J1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + "");
                         lbl_J2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs + "");
 
@@ -291,6 +307,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(0) == true) {
             btn_col_0.setEnabled(false);
         }
+        avoirgagne();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
@@ -300,6 +317,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(4) == true) {
             btn_col_4.setEnabled(false);
         }
+        avoirgagne();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
@@ -309,6 +327,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(2) == true) {
             btn_col_2.setEnabled(false);
         }
+        avoirgagne();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
@@ -318,6 +337,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(3) == true) {
             btn_col_3.setEnabled(false);
         }
+        avoirgagne();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
@@ -327,6 +347,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(5) == true) {
             btn_col_5.setEnabled(false);
         }
+        avoirgagne();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
@@ -348,6 +369,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(1) == true) {
             btn_col_1.setEnabled(false);
         }
+        avoirgagne();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
@@ -357,6 +379,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (grilleJeu.colonneRemplie(6) == true) {
             btn_col_6.setEnabled(false);
         }
+        avoirgagne();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
