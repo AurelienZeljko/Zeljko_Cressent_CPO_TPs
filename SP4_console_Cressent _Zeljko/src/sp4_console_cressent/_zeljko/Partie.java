@@ -198,7 +198,6 @@ public class Partie {
             }
         }
         Random nombre3 = new Random();
-        for (int i =1 ; i<4 ; i++){
             int A, B;
             do {
                 A = nombre3.nextInt(6);
@@ -206,7 +205,6 @@ public class Partie {
             } while (grilleJeu.CellulesJeu[A][B].presencedesintegrateur() == true);
 
             grilleJeu.placerDesintegrateur(A, B);
-        }
         //grilleJeu.afficherGrilleSurConsole();
     }
 
