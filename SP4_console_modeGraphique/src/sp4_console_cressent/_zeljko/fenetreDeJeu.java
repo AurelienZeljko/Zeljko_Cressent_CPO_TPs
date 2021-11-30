@@ -67,7 +67,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                             }
                         }
                         
-                        //grilleJeu.tasserGrille();
+                        grilleJeu.tasserGrille();
                         panneau_grille.repaint();
                         avoirgagne();
                         lbl_J1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs + "");

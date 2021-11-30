@@ -148,13 +148,23 @@ public class Grille {
         }
         return resultat;
     }
-
-    public void tasserGrille(int A) {
-        for (int i = 0; i < 5; i++) {
-            if (CellulesJeu[i][A].jetonCourant == null) {
+    public void tasserColonne(int A){
+        for (int i = 0; i < 6; i++) {
+            if (i==5){
+                CellulesJeu[i][A].jetonCourant=null;
+            }
+            else {
+                if (CellulesJeu[i][A].jetonCourant == null) {
                 CellulesJeu[i][A].jetonCourant = CellulesJeu[i + 1][A].jetonCourant;
                 CellulesJeu[i + 1][A].jetonCourant = null;
             }
+            }
+        }
+    }
+
+    public void tasserGrille() {
+        for (int i = 0; i < 7; i++) {
+            tasserColonne(i);
         }
     }
 
