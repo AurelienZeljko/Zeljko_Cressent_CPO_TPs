@@ -10,7 +10,7 @@ package asist_poker_console_cressent_zeljko;
  */
 public class Joueur {
     String Nom;
-    Carte[]ListeCartes = new Carte[1];
+    Carte[]ListeCartes = new Carte[2];
     
     public Joueur(String A){
         Nom = A;

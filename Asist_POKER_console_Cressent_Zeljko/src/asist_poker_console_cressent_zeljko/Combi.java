@@ -8,6 +8,6 @@ package asist_poker_console_cressent_zeljko;
  *
  * @author aurelienzeljko
  */
-public class Celulle {
+public class Combi {
     
 }

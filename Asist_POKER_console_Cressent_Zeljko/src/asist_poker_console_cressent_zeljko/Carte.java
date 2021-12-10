@@ -11,10 +11,12 @@ package asist_poker_console_cressent_zeljko;
 public class Carte {
     String Couleur;
     String Valeur;
+    boolean Visible=false;
     
     public Carte(String couleur1,String valeur1){
         Couleur = couleur1;
         Valeur = valeur1;
+        Visible=false;
     }
     public String lireCouleurCarte(){
         return Couleur;
