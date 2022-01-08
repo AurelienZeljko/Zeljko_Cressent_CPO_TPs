@@ -11,17 +11,34 @@ package asist_poker_console_cressent_zeljko;
 public class Carte {
     String Couleur;
     String Valeur;
-    boolean Visible=false;
-    
-    public Carte(String couleur1,String valeur1){
-        Couleur = couleur1;
-        Valeur = valeur1;
-        Visible=false;
-    }
-    public String lireCouleurCarte(){
-        return Couleur;
-    }
-    public String lireValeurCarte(){
-        return Valeur;
-    }
+    boolean Visible;
+
+    public Carte(String couleur, String valeur) {
+		Couleur = couleur;
+		Valeur = valeur;
+	}
+
+	public int comparer(Carte A) {
+		return Valeur.compareTo(A.AvoirValeur())+Couleur.compareTo(A.AvoirCouleur());
+	}
+
+	/**
+	 * @return the couleur
+	 */
+	public String AvoirCouleur() {
+		return Couleur;
+	}
+
+	/**
+	 * @return the valeur
+	 */
+	public String AvoirValeur() {
+		return Valeur;
+	}
+	
+	public String toString(){
+		return Valeur.toString()+" de "+Couleur.toString();
+	}
+
 }
+
